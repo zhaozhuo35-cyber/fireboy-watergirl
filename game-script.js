@@ -566,6 +566,9 @@ function getTile(x, y) {
 
 // 检查玩家碰撞
 function checkPlayerCollisions(player, isFireboy) {
+    // 重置门状态
+    player.atDoor = false;
+
     // 检查地图碰撞
     const corners = [
         {x: player.x, y: player.y},
@@ -587,9 +590,17 @@ function checkPlayerCollisions(player, isFireboy) {
         if (!isFireboy && tile === 2) { // 岩浆对冰人致命
             return 'dead';
         }
+
+        // 检查门 - 使用所有角点检测
+        if (isFireboy && tile === 7 && player.hasGem) {
+            player.atDoor = true;
+        }
+        if (!isFireboy && tile === 8 && player.hasGem) {
+            player.atDoor = true;
+        }
     }
 
-    // 检查宝石
+    // 检查宝石和门（使用中心点）
     const playerCol = Math.floor((player.x + player.width/2) / TILE_SIZE);
     const playerRow = Math.floor((player.y + player.height/2) / TILE_SIZE);
 
@@ -607,7 +618,7 @@ function checkPlayerCollisions(player, isFireboy) {
             createParticles(player.x + player.width/2, player.y + player.height/2, '#87CEEB', 10);
         }
 
-        // 检查门
+        // 也检查中心点的门
         if (isFireboy && tile === 7 && player.hasGem) {
             player.atDoor = true;
         }
