@@ -23,8 +23,8 @@ const fireboy = {
     height: 35,
     velocityX: 0,
     velocityY: 0,
-    speed: 5,
-    jumpPower: 15,
+    speed: 6,
+    jumpPower: 18,
     onGround: false,
     hasGem: false,
     atDoor: false,
@@ -39,8 +39,8 @@ const watergirl = {
     height: 35,
     velocityX: 0,
     velocityY: 0,
-    speed: 5,
-    jumpPower: 15,
+    speed: 6,
+    jumpPower: 18,
     onGround: false,
     hasGem: false,
     atDoor: false,
@@ -194,7 +194,7 @@ const levels = [
 let currentLevel = levels[currentLevelIndex];
 
 // 重力
-const GRAVITY = 0.6;
+const GRAVITY = 0.5;
 
 // 粒子系统
 class Particle {
