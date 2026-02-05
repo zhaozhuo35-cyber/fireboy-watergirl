@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>森林冰火人 - 双人闯关游戏</title>
+    <link rel="stylesheet" href="game-style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1>🔥 森林冰火人 ❄️</h1>
+            <div class="game-info">
+                <div class="level-info">关卡: <span id="currentLevel">1</span></div>
+                <div class="controls-hint">
+                    <span>🔥火人: 方向键移动</span>
+                    <span>❄️冰人: WASD移动</span>
+                </div>
+            </div>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="game-messages">
+            <div id="levelComplete" class="message hidden">
+                <h2>🎉 关卡完成！</h2>
+                <p>按 Enter 进入下一关</p>
+            </div>
+            <div id="gameOver" class="message hidden">
+                <h2>💀 游戏结束</h2>
+                <p>按 R 重新开始</p>
+            </div>
+            <div id="startScreen" class="message">
+                <h2>🎮 森林冰火人</h2>
+                <div class="instructions">
+                    <h3>游戏说明:</h3>
+                    <p>🔥 火人可以穿过岩浆，但不能碰水</p>
+                    <p>❄️ 冰人可以穿过冰水，但不能碰岩浆</p>
+                    <p>💚 绿色毒液两人都不能碰</p>
+                    <p>💎 收集宝石后到达门口过关</p>
+                    <p>🤝 双人协作，互相帮助才能通关</p>
+                </div>
+                <button id="startButton" class="start-button">开始游戏</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game-script.js"></script>
+</body>
+</html>
